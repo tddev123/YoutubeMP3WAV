@@ -6,7 +6,7 @@ from yt_dlp import YoutubeDL
 import os
 
 app = Flask(__name__, template_folder='templates')
-app.register_blueprint(views, url_prefix="/views")
+app.register_blueprint(views, url_prefix="/")
 
 
     
