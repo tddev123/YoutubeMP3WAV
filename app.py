@@ -1,7 +1,5 @@
-from flask import Flask,render_template, request
+from flask import Flask, render_template, request, jsonify, send_file
 from views import views
-from flask_mysqldb import MySQL
-from flask import Flask, request, jsonify, send_file
 from yt_dlp import YoutubeDL
 import os
 
@@ -9,7 +7,6 @@ app = Flask(__name__, template_folder='templates')
 app.register_blueprint(views, url_prefix="/")
 
 
-    
 # Path to the Downloads folder
 downloads_path = r'C:/Users/lilbubba/Downloads'
 
@@ -58,13 +55,9 @@ def download_file():
         return jsonify({'error': 'File not found'}), 404
 
     return send_file(file_path, as_attachment=True)
+
 if __name__ == '__main__':
     app.run(debug=True)
-    
-    
-    
-
-    
     
 
 
